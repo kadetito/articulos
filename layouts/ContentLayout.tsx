@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { FC, ReactNode } from "react";
+import { NavBar } from "../components/ui/NavBar";
 
 interface Props {
   title: string;
@@ -18,10 +19,16 @@ export const ContentLayout: FC<Props> = ({
     <>
       <Head>
         <title>{title}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="og:title" content={title} />
+        <meta name="og:description" content={pageDescription} />
+        {imageFullUrl && <meta name="og:image" content={imageFullUrl} />}
       </Head>
-      <nav></nav>
+      <nav>
+        <NavBar />
+      </nav>
       <main>
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-12">{children}</div>
           </div>
