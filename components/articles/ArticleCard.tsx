@@ -6,10 +6,9 @@ import NextLink from "next/link";
 
 interface Props {
   article: IArticle;
-  isSlug?: boolean;
 }
 
-export const ArticleCard: FC<Props> = ({ article, isSlug }) => {
+export const ArticleCard: FC<Props> = ({ article }, isSlug: boolean) => {
   const articleImage = useMemo(() => {
     return `articles/${article.images[0]}`;
   }, [article.images]);

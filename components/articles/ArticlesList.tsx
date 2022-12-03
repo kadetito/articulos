@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Row, Col, Card } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { IArticle } from "interfaces";
 import { ArticleCard } from "./ArticleCard";
 

@@ -4,12 +4,12 @@ export interface IArticle {
   images: string[];
   footImages: string[];
   activated: number;
-  price: number;
-
+  author: string;
   slug: string;
   tags: string[];
   title: string;
-
   category: "novedades" | "opinion" | "consejos" | "unisex";
   subtitle: string;
+  createdAt: string;
+  updatedAt: string;
 }
