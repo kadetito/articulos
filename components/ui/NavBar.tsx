@@ -1,17 +1,24 @@
 import NextLink from "next/link";
+import { useRouter } from "next/router";
+import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import { SearchComponent } from "./SearchComponent";
 
 export const NavBar = () => {
+  const { asPath } = useRouter();
   return (
     <>
       <Navbar key="sm" bg="dark" expand="sm" className="mb-3">
         <Container fluid>
-          <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+          <Navbar.Brand>
+            <NextLink href="/" passHref>
+              Navbar Offcanvas
+            </NextLink>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-$"sm"`} />
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-$"sm"`}
@@ -28,7 +35,11 @@ export const NavBar = () => {
                 <Nav>
                   <NextLink href="/category/news" passHref>
                     <Button
-                      variant="outline-secondary"
+                      variant={
+                        asPath === "/category/news"
+                          ? "secondary"
+                          : "outline-secondary"
+                      }
                       size="sm"
                       className="ms-2"
                     >
@@ -39,7 +50,11 @@ export const NavBar = () => {
                 <Nav>
                   <NextLink href="/category/opinion" passHref>
                     <Button
-                      variant="outline-secondary"
+                      variant={
+                        asPath === "/category/opinion"
+                          ? "secondary"
+                          : "outline-secondary"
+                      }
                       size="sm"
                       className="ms-2"
                     >
@@ -50,7 +65,11 @@ export const NavBar = () => {
                 <Nav>
                   <NextLink href="/category/advices" passHref>
                     <Button
-                      variant="outline-secondary"
+                      variant={
+                        asPath === "/category/advices"
+                          ? "secondary"
+                          : "outline-secondary"
+                      }
                       size="sm"
                       className="ms-2"
                     >
@@ -73,17 +92,9 @@ export const NavBar = () => {
                   </NavDropdown.Item>
                 </NavDropdown> */}
               </Nav>
-              <Form className="d-flex">
-                <Form.Control
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-                <Button variant="outline-secondary" size="sm" className="ms-2">
-                  Search
-                </Button>
-              </Form>
+              <div className="d-flex">
+                <SearchComponent />
+              </div>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>

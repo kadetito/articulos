@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import {
   EmailShareButton,
   EmailIcon,
@@ -14,7 +15,8 @@ import {
 } from "react-share";
 
 export const ShareSocialMedia = () => {
-  const shareUrl = "http://www.hola.com";
+  const { asPath } = useRouter();
+  const shareUrl = `${process.env.NEXT_PUBLIC_API_URL}${asPath}`;
 
   return (
     <>

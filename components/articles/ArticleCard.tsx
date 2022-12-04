@@ -6,11 +6,12 @@ import NextLink from "next/link";
 
 interface Props {
   article: IArticle;
+  isSlug: boolean;
 }
 
-export const ArticleCard: FC<Props> = ({ article }, isSlug: boolean) => {
+export const ArticleCard: FC<Props> = ({ article, isSlug }) => {
   const articleImage = useMemo(() => {
-    return `articles/${article.images[0]}`;
+    return `/articles/${article.images[0]}`;
   }, [article.images]);
 
   const articleFootImage = useMemo(() => {
@@ -67,7 +68,11 @@ export const ArticleCard: FC<Props> = ({ article }, isSlug: boolean) => {
               </Col>
               {!isSlug && (
                 <Col className="d-flex justify-content-end ">
-                  <NextLink href="/article/slug" passHref prefetch={false}>
+                  <NextLink
+                    href={`/article/${article.slug}`}
+                    passHref
+                    prefetch={false}
+                  >
                     <Button variant="outline-secondary">View detail</Button>
                   </NextLink>
                 </Col>

@@ -37,7 +37,7 @@ const getArticles = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 
   await db.connect();
   const articles = await Article.find(condition)
-    .select("title category images imagesFoot activated slug -_id")
+    .select("title category content images footImages activated slug -_id")
     .lean();
   await db.disconnect();
 

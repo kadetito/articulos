@@ -9,8 +9,6 @@ interface Props {
 }
 
 export const ImagesComponent: FC<Props> = ({ title, images, footImages }) => {
-  console.log(images);
-
   return (
     <>
       {images.map((image: any, index: any) => (

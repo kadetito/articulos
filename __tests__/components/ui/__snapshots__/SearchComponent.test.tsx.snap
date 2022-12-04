@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Component <SearchComponent /> debe hacer match con el snapshot 1`] = `
+<div>
+  <input
+    aria-label="Search"
+    class="me-2 form-control"
+    data-testid="inputsearch"
+    placeholder="Search"
+    type="search"
+    value=""
+  />
+  <button
+    class="ms-2 btn btn-outline-secondary btn-sm"
+    data-testid="buttonsearch"
+    type="button"
+  >
+    Search
+  </button>
+</div>
+`;

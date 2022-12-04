@@ -2,8 +2,11 @@ import { Row, Col } from "react-bootstrap";
 import { ContentLayout } from "../layouts/ContentLayout";
 import { ArticlesList } from "../components/articles/ArticlesList";
 import { initialData } from "database/articles";
+import { useArticles } from "../hooks/useArticles";
+import { FullScreenLoading } from "../components/ui/FullScreenLoading";
 
 export default function Home() {
+  const { articles, isLoading } = useArticles("/articles");
   return (
     <ContentLayout
       title={"Articulos en NEXTJS (sandbox) - Home page"}
@@ -20,7 +23,11 @@ export default function Home() {
           sidebar
         </Col>
         <Col className="custom__card-home">
-          <ArticlesList articles={initialData.articles as any} />
+          {isLoading ? (
+            <FullScreenLoading />
+          ) : (
+            <ArticlesList articles={articles} />
+          )}
         </Col>
       </Row>
     </ContentLayout>

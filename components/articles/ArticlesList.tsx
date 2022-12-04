@@ -12,7 +12,7 @@ export const ArticlesList: FC<Props> = ({ articles }) => {
     <Row>
       <Col className=" mb-4" sm="12" xs="12" md="12" lg="12" xl="12">
         {articles.map((article) => (
-          <ArticleCard article={article} key={article.slug} />
+          <ArticleCard article={article} isSlug={false} key={article.slug} />
         ))}
       </Col>
     </Row>
